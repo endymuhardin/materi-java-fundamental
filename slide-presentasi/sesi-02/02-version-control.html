@@ -53,6 +53,7 @@
 <li>Tempat penyimpanan file dan folder</li>
 <li>Dapat menyimpan history perubahan</li>
 <li>Seperti mesin waktu, bisa kembali ke posisi masa lalu</li>
+<li>Bisa mengelola kolaborasi banyak orang</li>
 </ul>
 </div>
 <div class="section slide level1" id="berbagai-aplikasi-version-control">
@@ -63,12 +64,13 @@
 <li>Mercurial</li>
 </ul>
 </div>
-<div class="section slide level1" id="berbagai-penyedia-version-control-gratis">
-<h1>Berbagai Penyedia Version Control Gratis</h1>
+<div class="section slide level1" id="berbagai-penyedia-version-control">
+<h1>Berbagai Penyedia Version Control</h1>
 <ul class="incremental">
-<li>Github</li>
-<li>Google Code</li>
-<li>Sourceforge</li>
+<li>Github <a href="http://github.com"><code class="url">http://github.com</code></a></li>
+<li>Bitbucket <a href="http://bitbucket.com"><code class="url">http://bitbucket.com</code></a></li>
+<li>Google Code <a href="http://code.google.com"><code class="url">http://code.google.com</code></a></li>
+<li>Sourceforge <a href="http://sourceforge.net"><code class="url">http://sourceforge.net</code></a></li>
 </ul>
 </div>
 <div class="section slide level1" id="komponen-version-control">
@@ -107,6 +109,7 @@
 <div class="section slide level1" id="perintah-yang-sering-digunakan">
 <h1>Perintah yang sering digunakan</h1>
 <ul class="incremental">
+<li><code>git init</code> : Membuat repository baru</li>
 <li><code>git clone</code> : copy repository remote ke local</li>
 <li><code>git status</code> : melihat kondisi working folder</li>
 <li><code>git diff</code> : melihat perubahan yang dilakukan</li>
@@ -114,6 +117,7 @@
 <li><code>git diff --staged</code> : melihat perubahan yang akan dicommit</li>
 <li><code>git commit</code> : menyimpan file ke repository local</li>
 <li><code>git push</code> : mengupload perubahan di repository local ke remote</li>
+<li><code>git pull</code> : mendownload perubahan di remote ke local</li>
 </ul>
 </div>
 <div class="section slide level1" id="perintah-yang-sering-digunakan-1">
@@ -124,6 +128,161 @@
 <li><code>git checkout &lt;commit-id&gt;</code> : kembali ke posisi <code>&lt;commit-id&gt;</code></li>
 <li><code>git branch -a</code> : melihat daftar nama branch</li>
 <li><code>git checkout &lt;nama-branch&gt;</code> : kembali ke posisi terbaru di <code>&lt;nama-branch&gt;</code></li>
+</ul>
+</div>
+<div class="section slide level1" id="beberapa-istilah-lagi">
+<h1>Beberapa istilah lagi</h1>
+<ul class="incremental">
+<li>commit : satu set perubahan, memiliki relasi ke induk (parent)</li>
+<li>head : commit paling ujung</li>
+<li>branch : head yang diberi nama</li>
+<li>HEAD : head di branch yang sedang aktif</li>
+</ul>
+</div>
+<div class="section slide level1" id="undo-sebelum-commit">
+<h1>Undo sebelum commit</h1>
+<ul class="incremental">
+<li><p>Reset working folder ke posisi terakhir commit</p>
+<pre><code>git reset --hard</code></pre></li>
+<li><p>Reset staging ke posisi terakhir commit</p>
+<pre><code>git reset --mixed
+git reset</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="undo-setelah-commit">
+<h1>Undo setelah commit</h1>
+<ul class="incremental">
+<li><p>Revert :</p>
+<pre><code>git revert &lt;commit-id&gt;</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="konsep-branch">
+<h1>Konsep Branch</h1>
+<ul class="incremental">
+<li>digunakan untuk paralel development</li>
+<li>contoh penggunaan:
+<ul class="incremental">
+<li>bugfix vs development</li>
+<li>paralel development (per orang 1 fitur)</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level1" id="teknis-branch">
+<h1>Teknis Branch</h1>
+<ul class="incremental">
+<li><p>Membuat branch</p>
+<pre><code>git branch &lt;nama-branch&gt; &lt;parent-commit&gt;</code></pre></li>
+<li><p>Daftar branch</p>
+<pre><code>git branch -a</code></pre></li>
+<li><p>Pindah ke branch</p>
+<pre><code>git checkout &lt;nama-branch&gt;</code></pre></li>
+<li><p>Menghapus branch</p>
+<pre><code>git branch -d &lt;nama-branch&gt;
+git branch -D &lt;nama-branch&gt;</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="konsep-merge">
+<h1>Konsep Merge</h1>
+<ul class="incremental">
+<li>Menggabungkan dua branch menjadi satu</li>
+<li>Kemungkinan hasil :
+<ul class="incremental">
+<li>sukses : bila tidak ada edit di lokasi yang sama</li>
+<li>conflict : bila ada edit di lokasi yang sama</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level1" id="penanganan-konflik">
+<h1>Penanganan Konflik</h1>
+<ul class="incremental">
+<li>Cari tahu siapa orang lain yang mengedit di lokasi yang sama</li>
+<li>Koordinasikan tentang versi mana yang seharusnya ada</li>
+<li>Resolve conflict</li>
+</ul>
+</div>
+<div class="section slide level1" id="teknis-merge">
+<h1>Teknis Merge</h1>
+<ul class="incremental">
+<li><p>Pindah dulu ke branch tujuan</p>
+<pre><code>git checkout master</code></pre></li>
+<li><p>Tarik branch yang mau dimerge</p>
+<pre><code>git merge fitur-xx</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="teknis-penanganan-konflik">
+<h1>Teknis Penanganan Konflik</h1>
+<ul class="incremental">
+<li><p>Bagian yang conflict akan ditandai</p>
+<pre><code>&lt;&lt;&lt;HEAD
+isi file di versinya HEAD
+=====
+isi file versi branch lain
+&gt;&gt;&gt;fitur-xx</code></pre></li>
+<li><p>Edit file yang conflict</p></li>
+<li><p>Setelah selesai commit</p>
+<pre><code>git add . 
+git commit -m &quot;Merge dan edit conflict&quot;</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="remote-repository">
+<h1>Remote Repository</h1>
+<ul class="incremental">
+<li><p>Copy remote repository ke local</p>
+<pre><code>git clone &lt;url-repository&gt;
+git clone 
+    https://github.com/endymuhardin/buku-git.git</code></pre></li>
+<li><p>Melihat daftar remote repository</p>
+<pre><code>git remote -v</code></pre></li>
+<li><p>Menambah remote repository</p>
+<pre><code>git remote add &lt;nama-remote&gt; &lt;url-remote&gt;
+git remote add endy-github 
+    https://github.com/endymuhardin/buku-git.git</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="sinkronisasi-local---remote">
+<h1>Sinkronisasi Local - Remote</h1>
+<ul class="incremental">
+<li><p>Upload commit di local ke remote</p>
+<pre><code>git push &lt;remote&gt; &lt;branch-local&gt;:&lt;branch-remote&gt;</code></pre></li>
+<li><p>Contoh</p>
+<pre><code>git push endy-github master:master</code></pre></li>
+<li><p>Download commit di remote ke local</p>
+<pre><code>git remote update</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="remote-branch">
+<h1>Remote Branch</h1>
+<ul class="incremental">
+<li><p>Melihat daftar branch baik local maupun remote</p>
+<pre><code>git branch -a</code></pre>
+<ul class="incremental">
+<li>Branch yang namanya diawali remotes adalah remote branch</li>
+<li><p>Contoh</p>
+<pre><code>git branch -a
+* master
+remotes/origin/master</code></pre></li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level1" id="remote-branch-1">
+<h1>Remote Branch</h1>
+<ul class="incremental">
+<li><p>Menghapus remote branch</p>
+<pre><code>git push &lt;remote&gt; :&lt;branch-remote&gt;</code></pre>
+<ul class="incremental">
+<li><p>Contoh</p>
+<pre><code>git push endy-github :branch-percobaan</code></pre></li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level1" id="merge-dengan-remote-branch">
+<h1>Merge dengan Remote Branch</h1>
+<ul class="incremental">
+<li><p>Merge commit dari remote branch ke local</p>
+<pre><code>git merge &lt;remote-branch&gt;</code></pre></li>
+<li><p>Contoh merge remote branch ke local</p>
+<pre><code>git checkout master
+git merge endy-github/master</code></pre></li>
 </ul>
 </div>
 </div>
