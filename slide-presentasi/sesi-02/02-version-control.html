@@ -285,6 +285,86 @@ remotes/origin/master</code></pre></li>
 git merge endy-github/master</code></pre></li>
 </ul>
 </div>
+<div class="section slide level1" id="pull">
+<h1>Pull</h1>
+<ul class="incremental">
+<li>Pull = remote update + merge</li>
+<li><p>Contoh cara manual</p>
+<pre><code>git remote update
+git checkout master
+git merge origin/master</code></pre></li>
+<li><p>Dengan git pull</p>
+<pre><code>git pull origin master</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="membuat-server-git">
+<h1>Membuat Server Git</h1>
+<ul class="incremental">
+<li>Pilihan Aplikasi
+<ul class="incremental">
+<li>Gitolite (command line, python)</li>
+<li>Gitblit (web-based, java)</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level1" id="menggunakan-gitblit">
+<h1>Menggunakan Gitblit</h1>
+<ul class="incremental">
+<li>Download</li>
+<li>Extract</li>
+<li>Edit gitblit.properties</li>
+</ul>
+</div>
+<div class="section slide level1" id="gitblit.properties">
+<h1>gitblit.properties</h1>
+<ul class="incremental">
+<li><p>Folder penyimpanan repository</p>
+<pre><code>git.repositoriesFolder</code></pre></li>
+<li><p>IP Server</p>
+<pre><code>server.httpsBindInterface</code></pre></li>
+<li><p>Port Server</p>
+<pre><code>server.httpsPort</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="menjalankan-gitblit">
+<h1>Menjalankan Gitblit</h1>
+<ul class="incremental">
+<li><p>Run</p>
+<pre><code>java -jar gitblit.jar</code></pre></li>
+<li><p>Browse</p>
+<pre><code>https://ip-server:8443/</code></pre></li>
+<li>Login
+<ul class="incremental">
+<li>Username : admin</li>
+<li>Password : admin</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level1" id="push-ke-gitblit">
+<h1>Push ke Gitblit</h1>
+<ul class="incremental">
+<li>Login ke Gitblit</li>
+<li>Create New Repository</li>
+<li><p>Add remote repository</p>
+<pre><code>git remote add gitblit 
+https://localhost:8443/git/latihan-git.git</code></pre></li>
+<li><p>Push</p>
+<pre><code>git push gitblit master</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="self-signed-certificate">
+<h1>Self-signed Certificate</h1>
+<ul class="incremental">
+<li><p>Error certificate</p>
+<pre><code>error: server certificate verification failed. 
+CAfile: /etc/ssl/certs/ca-certificates.crt
+CRLfile: none while accessing 
+https://localhost:8443/git/latihan-git.git/info/refs
+fatal: HTTP request failed</code></pre></li>
+<li><p>Ignore self signed certificate</p>
+<pre><code>git config http.sslVerify false</code></pre></li>
+</ul>
+</div>
 </div>
 </body>
 </html>

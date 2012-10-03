@@ -233,3 +233,71 @@
 * Dengan git pull
 
         git pull origin master
+
+# Membuat Server Git #
+
+* Pilihan Aplikasi
+    * Gitolite (command line, python)
+    * Gitblit (web-based, java)
+
+# Menggunakan Gitblit #
+
+* Download
+* Extract
+* Edit gitblit.properties
+
+# gitblit.properties #
+
+* Folder penyimpanan repository
+
+        git.repositoriesFolder
+
+* IP Server
+
+        server.httpsBindInterface
+
+* Port Server
+
+        server.httpsPort
+
+# Menjalankan Gitblit #
+
+* Run
+
+        java -jar gitblit.jar
+
+* Browse
+
+        https://ip-server:8443/
+
+* Login
+    * Username : admin
+    * Password : admin
+
+# Push ke Gitblit #
+
+* Login ke Gitblit
+* Create New Repository
+* Add remote repository
+
+        git remote add gitblit 
+        https://localhost:8443/git/latihan-git.git
+
+* Push
+
+        git push gitblit master
+
+# Self-signed Certificate
+
+* Error certificate
+    
+        error: server certificate verification failed. 
+        CAfile: /etc/ssl/certs/ca-certificates.crt
+        CRLfile: none while accessing 
+        https://localhost:8443/git/latihan-git.git/info/refs
+        fatal: HTTP request failed
+
+* Ignore self signed certificate
+
+        git config http.sslVerify false
+
