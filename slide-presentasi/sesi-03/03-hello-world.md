@@ -63,11 +63,11 @@
 * Environment variable (local)
     * Windows : 
     
-        set CLASSPATH=folder1;c:\folder2;..\folder3
+            set CLASSPATH=folder1;c:\folder2;..\folder3
 
     * Linux : 
     
-        export CLASSPATH=folder1:/home/endy:../folder3
+            export CLASSPATH=folder1:/home/endy:../folder3
 
 * Environment variable (global)
     * Windows : 
