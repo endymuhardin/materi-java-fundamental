@@ -72,20 +72,30 @@
 
 # Undo sebelum commit #
 
-* Reset working folder ke posisi terakhir commit
+* Reset working folder dan staging area ke commit terakhir
 
         git reset --hard
 
-* Reset staging ke posisi terakhir commit
+* Reset staging ke commit terakhir, 
 
         git reset --mixed
         git reset
 
+* Reset working ke staging
+
+        git checkout . 
+
 # Undo setelah commit #
 
-* Revert : 
+* Revert (undo dengan history) : 
 
         git revert <commit-id>
+
+* Reset (undo tanpa history) :
+
+        git reset --hard <commit-id>
+
+    * Warning !!! Operasi berbahaya !!!
 
 # Konsep Branch #
 

@@ -142,18 +142,25 @@
 <div class="section slide level1" id="undo-sebelum-commit">
 <h1>Undo sebelum commit</h1>
 <ul class="incremental">
-<li><p>Reset working folder ke posisi terakhir commit</p>
+<li><p>Reset working folder dan staging area ke commit terakhir</p>
 <pre><code>git reset --hard</code></pre></li>
-<li><p>Reset staging ke posisi terakhir commit</p>
+<li><p>Reset staging ke commit terakhir,</p>
 <pre><code>git reset --mixed
 git reset</code></pre></li>
+<li><p>Reset working ke staging</p>
+<pre><code>git checkout . </code></pre></li>
 </ul>
 </div>
 <div class="section slide level1" id="undo-setelah-commit">
 <h1>Undo setelah commit</h1>
 <ul class="incremental">
-<li><p>Revert :</p>
+<li><p>Revert (undo dengan history) :</p>
 <pre><code>git revert &lt;commit-id&gt;</code></pre></li>
+<li><p>Reset (undo tanpa history) :</p>
+<pre><code>git reset --hard &lt;commit-id&gt;</code></pre>
+<ul class="incremental">
+<li>Warning !!! Operasi berbahaya !!!</li>
+</ul></li>
 </ul>
 </div>
 <div class="section slide level1" id="konsep-branch">
