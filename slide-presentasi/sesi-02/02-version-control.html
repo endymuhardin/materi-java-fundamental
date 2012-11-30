@@ -6,7 +6,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Endy Muhardin endy.muhardin@gmail.com" />
   <meta name="date" content="2012-09-21" />
-  <title>Java Fundamental - Version Control</title>
+  <title>Version Control - Git</title>
   <!-- configuration parameters -->
   <meta name="defaultView" content="slideshow" />
   <meta name="controlVis" content="hidden" />
@@ -25,12 +25,12 @@
 <div id="header"></div>
 <div id="footer">
   <h1>21 September 2012</h1>
-  <h2>Java Fundamental - Version Control</h2>
+  <h2>Version Control - Git</h2>
 </div>
 </div>
 <div class="presentation">
 <div class="titleslide slide">
-  <h1>Java Fundamental - Version Control</h1>
+  <h1>Version Control - Git</h1>
   <h2>Endy Muhardin <script type="text/javascript">
             <!--
             h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x65;&#110;&#100;&#x79;&#46;&#x6d;&#x75;&#104;&#x61;&#114;&#100;&#x69;&#110;';e=n+a+h;
@@ -41,7 +41,7 @@
 </div>
 <div class="section slide level1" id="tujuan">
 <h1>Tujuan</h1>
-<ul class="incremental">
+<ul>
 <li>Memahami konsep version control</li>
 <li>Dapat menggunakan Git</li>
 <li>Dapat menggunakan Github</li>
@@ -49,7 +49,7 @@
 </div>
 <div class="section slide level1" id="apa-itu-version-control">
 <h1>Apa itu version control</h1>
-<ul class="incremental">
+<ul>
 <li>Tempat penyimpanan file dan folder</li>
 <li>Dapat menyimpan history perubahan</li>
 <li>Seperti mesin waktu, bisa kembali ke posisi masa lalu</li>
@@ -58,7 +58,7 @@
 </div>
 <div class="section slide level1" id="berbagai-aplikasi-version-control">
 <h1>Berbagai Aplikasi Version Control</h1>
-<ul class="incremental">
+<ul>
 <li>Subversion</li>
 <li>Git</li>
 <li>Mercurial</li>
@@ -66,7 +66,7 @@
 </div>
 <div class="section slide level1" id="berbagai-penyedia-version-control">
 <h1>Berbagai Penyedia Version Control</h1>
-<ul class="incremental">
+<ul>
 <li>Github <a href="http://github.com"><code class="url">http://github.com</code></a></li>
 <li>Bitbucket <a href="http://bitbucket.com"><code class="url">http://bitbucket.com</code></a></li>
 <li>Google Code <a href="http://code.google.com"><code class="url">http://code.google.com</code></a></li>
@@ -75,14 +75,14 @@
 </div>
 <div class="section slide level1" id="komponen-version-control">
 <h1>Komponen Version Control</h1>
-<ul class="incremental">
+<ul>
 <li>Aplikasi Client : diinstal di laptop/PC kita sendiri</li>
 <li>Aplikasi Server : diinstal di server</li>
 </ul>
 </div>
 <div class="section slide level1" id="langkah-instalasi-client">
 <h1>Langkah Instalasi Client</h1>
-<ul class="incremental">
+<ul>
 <li>Download</li>
 <li>Install</li>
 <li>Setup User dan Email</li>
@@ -90,13 +90,13 @@
 </div>
 <div class="section slide level1" id="langkah-instalasi-server">
 <h1>Langkah Instalasi Server</h1>
-<ul class="incremental">
-<li>Tidak dibahas</li>
+<ul>
+<li>Dibahas di bagian remoting</li>
 </ul>
 </div>
 <div class="section slide level1" id="berbagai-istilah">
 <h1>Berbagai Istilah</h1>
-<ul class="incremental">
+<ul>
 <li>Repository : tempat penyimpanan data</li>
 <li>Remote : repository yang ada di server</li>
 <li>Local : repository yang ada di pc/laptop kita</li>
@@ -108,13 +108,14 @@
 </div>
 <div class="section slide level1" id="perintah-yang-sering-digunakan">
 <h1>Perintah yang sering digunakan</h1>
-<ul class="incremental">
+<ul>
 <li><code>git init</code> : Membuat repository baru</li>
 <li><code>git clone</code> : copy repository remote ke local</li>
 <li><code>git status</code> : melihat kondisi working folder</li>
 <li><code>git diff</code> : melihat perubahan yang dilakukan</li>
 <li><code>git add</code> : menyiapkan file untuk dicommit</li>
 <li><code>git diff --staged</code> : melihat perubahan yang akan dicommit</li>
+<li><code>git diff HEAD</code> : membandingkan working dan last commit</li>
 <li><code>git commit</code> : menyimpan file ke repository local</li>
 <li><code>git push</code> : mengupload perubahan di repository local ke remote</li>
 <li><code>git pull</code> : mendownload perubahan di remote ke local</li>
@@ -122,7 +123,7 @@
 </div>
 <div class="section slide level1" id="perintah-yang-sering-digunakan-1">
 <h1>Perintah yang sering digunakan</h1>
-<ul class="incremental">
+<ul>
 <li><code>git log</code> : melihat riwayat perubahan</li>
 <li><code>git log --oneline</code> : melihat riwayat perubahan (singkat)</li>
 <li><code>git checkout &lt;commit-id&gt;</code> : kembali ke posisi <code>&lt;commit-id&gt;</code></li>
@@ -132,7 +133,7 @@
 </div>
 <div class="section slide level1" id="beberapa-istilah-lagi">
 <h1>Beberapa istilah lagi</h1>
-<ul class="incremental">
+<ul>
 <li>commit : satu set perubahan, memiliki relasi ke induk (parent)</li>
 <li>head : commit paling ujung</li>
 <li>branch : head yang diberi nama</li>
@@ -141,42 +142,52 @@
 </div>
 <div class="section slide level1" id="undo-sebelum-commit">
 <h1>Undo sebelum commit</h1>
-<ul class="incremental">
+<ul>
 <li><p>Reset working folder dan staging area ke commit terakhir</p>
-<pre><code>git reset --hard</code></pre></li>
+<pre><code>git reset --hard
+git checkout -- &lt;nama-file&gt;</code></pre></li>
 <li><p>Reset staging ke commit terakhir,</p>
 <pre><code>git reset --mixed
-git reset</code></pre></li>
+git reset
+git add -i</code></pre></li>
 <li><p>Reset working ke staging</p>
 <pre><code>git checkout . </code></pre></li>
 </ul>
 </div>
 <div class="section slide level1" id="undo-setelah-commit">
 <h1>Undo setelah commit</h1>
-<ul class="incremental">
+<ul>
 <li><p>Revert (undo dengan history) :</p>
 <pre><code>git revert &lt;commit-id&gt;</code></pre></li>
 <li><p>Reset (undo tanpa history) :</p>
 <pre><code>git reset --hard &lt;commit-id&gt;</code></pre>
-<ul class="incremental">
+<ul>
 <li>Warning !!! Operasi berbahaya !!!</li>
 </ul></li>
 </ul>
 </div>
 <div class="section slide level1" id="konsep-branch">
 <h1>Konsep Branch</h1>
-<ul class="incremental">
+<ul>
 <li>digunakan untuk paralel development</li>
 <li>contoh penggunaan:
-<ul class="incremental">
+<ul>
 <li>bugfix vs development</li>
 <li>paralel development (per orang 1 fitur)</li>
 </ul></li>
 </ul>
 </div>
+<div class="section slide level1" id="jenis-branch">
+<h1>Jenis Branch</h1>
+<ul>
+<li>Release Branch</li>
+<li>Integration Branch</li>
+<li>Topic Branch</li>
+</ul>
+</div>
 <div class="section slide level1" id="teknis-branch">
 <h1>Teknis Branch</h1>
-<ul class="incremental">
+<ul>
 <li><p>Membuat branch</p>
 <pre><code>git branch &lt;nama-branch&gt; &lt;parent-commit&gt;</code></pre></li>
 <li><p>Daftar branch</p>
@@ -190,10 +201,10 @@ git branch -D &lt;nama-branch&gt;</code></pre></li>
 </div>
 <div class="section slide level1" id="konsep-merge">
 <h1>Konsep Merge</h1>
-<ul class="incremental">
+<ul>
 <li>Menggabungkan dua branch menjadi satu</li>
 <li>Kemungkinan hasil :
-<ul class="incremental">
+<ul>
 <li>sukses : bila tidak ada edit di lokasi yang sama</li>
 <li>conflict : bila ada edit di lokasi yang sama</li>
 </ul></li>
@@ -201,7 +212,7 @@ git branch -D &lt;nama-branch&gt;</code></pre></li>
 </div>
 <div class="section slide level1" id="penanganan-konflik">
 <h1>Penanganan Konflik</h1>
-<ul class="incremental">
+<ul>
 <li>Cari tahu siapa orang lain yang mengedit di lokasi yang sama</li>
 <li>Koordinasikan tentang versi mana yang seharusnya ada</li>
 <li>Resolve conflict</li>
@@ -209,7 +220,7 @@ git branch -D &lt;nama-branch&gt;</code></pre></li>
 </div>
 <div class="section slide level1" id="teknis-merge">
 <h1>Teknis Merge</h1>
-<ul class="incremental">
+<ul>
 <li><p>Pindah dulu ke branch tujuan</p>
 <pre><code>git checkout master</code></pre></li>
 <li><p>Tarik branch yang mau dimerge</p>
@@ -218,7 +229,7 @@ git branch -D &lt;nama-branch&gt;</code></pre></li>
 </div>
 <div class="section slide level1" id="teknis-penanganan-konflik">
 <h1>Teknis Penanganan Konflik</h1>
-<ul class="incremental">
+<ul>
 <li><p>Bagian yang conflict akan ditandai</p>
 <pre><code>&lt;&lt;&lt;HEAD
 isi file di versinya HEAD
@@ -231,9 +242,77 @@ isi file versi branch lain
 git commit -m &quot;Merge dan edit conflict&quot;</code></pre></li>
 </ul>
 </div>
+<div class="section slide level1" id="membuat-server-git">
+<h1>Membuat Server Git</h1>
+<ul>
+<li>Pilihan Aplikasi
+<ul>
+<li>Gitolite (command line, python)</li>
+<li>Gitblit (web-based, java)</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level1" id="menggunakan-gitblit">
+<h1>Menggunakan Gitblit</h1>
+<ul>
+<li>Download</li>
+<li>Extract</li>
+<li>Edit gitblit.properties</li>
+</ul>
+</div>
+<div class="section slide level1" id="gitblit.properties">
+<h1>gitblit.properties</h1>
+<ul>
+<li><p>Folder penyimpanan repository</p>
+<pre><code>git.repositoriesFolder</code></pre></li>
+<li><p>IP Server</p>
+<pre><code>server.httpsBindInterface</code></pre></li>
+<li><p>Port Server</p>
+<pre><code>server.httpsPort</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="menjalankan-gitblit">
+<h1>Menjalankan Gitblit</h1>
+<ul>
+<li><p>Run</p>
+<pre><code>java -jar gitblit.jar</code></pre></li>
+<li><p>Browse</p>
+<pre><code>https://ip-server:8443/</code></pre></li>
+<li>Login
+<ul>
+<li>Username : admin</li>
+<li>Password : admin</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level1" id="push-ke-gitblit">
+<h1>Push ke Gitblit</h1>
+<ul>
+<li>Login ke Gitblit</li>
+<li>Create New Repository</li>
+<li><p>Add remote repository</p>
+<pre><code>git remote add gitblit 
+https://localhost:8443/git/latihan-git.git</code></pre></li>
+<li><p>Push</p>
+<pre><code>git push gitblit master</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="self-signed-certificate">
+<h1>Self-signed Certificate</h1>
+<ul>
+<li><p>Error certificate</p>
+<pre><code>error: server certificate verification failed. 
+CAfile: /etc/ssl/certs/ca-certificates.crt
+CRLfile: none while accessing 
+https://localhost:8443/git/latihan-git.git/info/refs
+fatal: HTTP request failed</code></pre></li>
+<li><p>Ignore self signed certificate</p>
+<pre><code>git config http.sslVerify false</code></pre></li>
+</ul>
+</div>
 <div class="section slide level1" id="remote-repository">
 <h1>Remote Repository</h1>
-<ul class="incremental">
+<ul>
 <li><p>Copy remote repository ke local</p>
 <pre><code>git clone &lt;url-repository&gt;
 git clone 
@@ -248,7 +327,7 @@ git remote add endy-github
 </div>
 <div class="section slide level1" id="sinkronisasi-local---remote">
 <h1>Sinkronisasi Local - Remote</h1>
-<ul class="incremental">
+<ul>
 <li><p>Upload commit di local ke remote</p>
 <pre><code>git push &lt;remote&gt; &lt;branch-local&gt;:&lt;branch-remote&gt;</code></pre></li>
 <li><p>Contoh</p>
@@ -259,10 +338,10 @@ git remote add endy-github
 </div>
 <div class="section slide level1" id="remote-branch">
 <h1>Remote Branch</h1>
-<ul class="incremental">
+<ul>
 <li><p>Melihat daftar branch baik local maupun remote</p>
 <pre><code>git branch -a</code></pre>
-<ul class="incremental">
+<ul>
 <li>Branch yang namanya diawali remotes adalah remote branch</li>
 <li><p>Contoh</p>
 <pre><code>git branch -a
@@ -273,10 +352,10 @@ remotes/origin/master</code></pre></li>
 </div>
 <div class="section slide level1" id="remote-branch-1">
 <h1>Remote Branch</h1>
-<ul class="incremental">
+<ul>
 <li><p>Menghapus remote branch</p>
 <pre><code>git push &lt;remote&gt; :&lt;branch-remote&gt;</code></pre>
-<ul class="incremental">
+<ul>
 <li><p>Contoh</p>
 <pre><code>git push endy-github :branch-percobaan</code></pre></li>
 </ul></li>
@@ -284,7 +363,7 @@ remotes/origin/master</code></pre></li>
 </div>
 <div class="section slide level1" id="merge-dengan-remote-branch">
 <h1>Merge dengan Remote Branch</h1>
-<ul class="incremental">
+<ul>
 <li><p>Merge commit dari remote branch ke local</p>
 <pre><code>git merge &lt;remote-branch&gt;</code></pre></li>
 <li><p>Contoh merge remote branch ke local</p>
@@ -294,7 +373,7 @@ git merge endy-github/master</code></pre></li>
 </div>
 <div class="section slide level1" id="pull">
 <h1>Pull</h1>
-<ul class="incremental">
+<ul>
 <li>Pull = remote update + merge</li>
 <li><p>Contoh cara manual</p>
 <pre><code>git remote update
@@ -302,74 +381,6 @@ git checkout master
 git merge origin/master</code></pre></li>
 <li><p>Dengan git pull</p>
 <pre><code>git pull origin master</code></pre></li>
-</ul>
-</div>
-<div class="section slide level1" id="membuat-server-git">
-<h1>Membuat Server Git</h1>
-<ul class="incremental">
-<li>Pilihan Aplikasi
-<ul class="incremental">
-<li>Gitolite (command line, python)</li>
-<li>Gitblit (web-based, java)</li>
-</ul></li>
-</ul>
-</div>
-<div class="section slide level1" id="menggunakan-gitblit">
-<h1>Menggunakan Gitblit</h1>
-<ul class="incremental">
-<li>Download</li>
-<li>Extract</li>
-<li>Edit gitblit.properties</li>
-</ul>
-</div>
-<div class="section slide level1" id="gitblit.properties">
-<h1>gitblit.properties</h1>
-<ul class="incremental">
-<li><p>Folder penyimpanan repository</p>
-<pre><code>git.repositoriesFolder</code></pre></li>
-<li><p>IP Server</p>
-<pre><code>server.httpsBindInterface</code></pre></li>
-<li><p>Port Server</p>
-<pre><code>server.httpsPort</code></pre></li>
-</ul>
-</div>
-<div class="section slide level1" id="menjalankan-gitblit">
-<h1>Menjalankan Gitblit</h1>
-<ul class="incremental">
-<li><p>Run</p>
-<pre><code>java -jar gitblit.jar</code></pre></li>
-<li><p>Browse</p>
-<pre><code>https://ip-server:8443/</code></pre></li>
-<li>Login
-<ul class="incremental">
-<li>Username : admin</li>
-<li>Password : admin</li>
-</ul></li>
-</ul>
-</div>
-<div class="section slide level1" id="push-ke-gitblit">
-<h1>Push ke Gitblit</h1>
-<ul class="incremental">
-<li>Login ke Gitblit</li>
-<li>Create New Repository</li>
-<li><p>Add remote repository</p>
-<pre><code>git remote add gitblit 
-https://localhost:8443/git/latihan-git.git</code></pre></li>
-<li><p>Push</p>
-<pre><code>git push gitblit master</code></pre></li>
-</ul>
-</div>
-<div class="section slide level1" id="self-signed-certificate">
-<h1>Self-signed Certificate</h1>
-<ul class="incremental">
-<li><p>Error certificate</p>
-<pre><code>error: server certificate verification failed. 
-CAfile: /etc/ssl/certs/ca-certificates.crt
-CRLfile: none while accessing 
-https://localhost:8443/git/latihan-git.git/info/refs
-fatal: HTTP request failed</code></pre></li>
-<li><p>Ignore self signed certificate</p>
-<pre><code>git config http.sslVerify false</code></pre></li>
 </ul>
 </div>
 </div>

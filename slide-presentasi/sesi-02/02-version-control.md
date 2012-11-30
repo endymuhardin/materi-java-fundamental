@@ -1,4 +1,4 @@
-% Java Fundamental - Version Control
+% Version Control - Git
 % Endy Muhardin <endy.muhardin@gmail.com>
 % 21 September 2012
 
@@ -34,7 +34,7 @@
 - Setup User dan Email
 
 # Langkah Instalasi Server #
-- Tidak dibahas
+- Dibahas di bagian remoting
 
 # Berbagai Istilah #
 - Repository : tempat penyimpanan data
@@ -52,6 +52,7 @@
 * `git diff` : melihat perubahan yang dilakukan
 * `git add` : menyiapkan file untuk dicommit
 * `git diff --staged` : melihat perubahan yang akan dicommit
+* `git diff HEAD` : membandingkan working dan last commit
 * `git commit` : menyimpan file ke repository local
 * `git push` : mengupload perubahan di repository local ke remote
 * `git pull` : mendownload perubahan di remote ke local
@@ -75,11 +76,13 @@
 * Reset working folder dan staging area ke commit terakhir
 
         git reset --hard
+        git checkout -- <nama-file>
 
 * Reset staging ke commit terakhir, 
 
         git reset --mixed
         git reset
+        git add -i
 
 * Reset working ke staging
 
@@ -103,6 +106,12 @@
 * contoh penggunaan:
     * bugfix vs development
     * paralel development (per orang 1 fitur)
+
+# Jenis Branch #
+
+* Release Branch
+* Integration Branch
+* Topic Branch
 
 # Teknis Branch #
 
@@ -162,6 +171,74 @@
 
         git add . 
         git commit -m "Merge dan edit conflict"
+
+# Membuat Server Git #
+
+* Pilihan Aplikasi
+    * Gitolite (command line, python)
+    * Gitblit (web-based, java)
+
+# Menggunakan Gitblit #
+
+* Download
+* Extract
+* Edit gitblit.properties
+
+# gitblit.properties #
+
+* Folder penyimpanan repository
+
+        git.repositoriesFolder
+
+* IP Server
+
+        server.httpsBindInterface
+
+* Port Server
+
+        server.httpsPort
+
+# Menjalankan Gitblit #
+
+* Run
+
+        java -jar gitblit.jar
+
+* Browse
+
+        https://ip-server:8443/
+
+* Login
+    * Username : admin
+    * Password : admin
+
+# Push ke Gitblit #
+
+* Login ke Gitblit
+* Create New Repository
+* Add remote repository
+
+        git remote add gitblit 
+        https://localhost:8443/git/latihan-git.git
+
+* Push
+
+        git push gitblit master
+
+# Self-signed Certificate
+
+* Error certificate
+    
+        error: server certificate verification failed. 
+        CAfile: /etc/ssl/certs/ca-certificates.crt
+        CRLfile: none while accessing 
+        https://localhost:8443/git/latihan-git.git/info/refs
+        fatal: HTTP request failed
+
+* Ignore self signed certificate
+
+        git config http.sslVerify false
+
 
 # Remote Repository #
 
@@ -244,70 +321,4 @@
 
         git pull origin master
 
-# Membuat Server Git #
-
-* Pilihan Aplikasi
-    * Gitolite (command line, python)
-    * Gitblit (web-based, java)
-
-# Menggunakan Gitblit #
-
-* Download
-* Extract
-* Edit gitblit.properties
-
-# gitblit.properties #
-
-* Folder penyimpanan repository
-
-        git.repositoriesFolder
-
-* IP Server
-
-        server.httpsBindInterface
-
-* Port Server
-
-        server.httpsPort
-
-# Menjalankan Gitblit #
-
-* Run
-
-        java -jar gitblit.jar
-
-* Browse
-
-        https://ip-server:8443/
-
-* Login
-    * Username : admin
-    * Password : admin
-
-# Push ke Gitblit #
-
-* Login ke Gitblit
-* Create New Repository
-* Add remote repository
-
-        git remote add gitblit 
-        https://localhost:8443/git/latihan-git.git
-
-* Push
-
-        git push gitblit master
-
-# Self-signed Certificate
-
-* Error certificate
-    
-        error: server certificate verification failed. 
-        CAfile: /etc/ssl/certs/ca-certificates.crt
-        CRLfile: none while accessing 
-        https://localhost:8443/git/latihan-git.git/info/refs
-        fatal: HTTP request failed
-
-* Ignore self signed certificate
-
-        git config http.sslVerify false
 
