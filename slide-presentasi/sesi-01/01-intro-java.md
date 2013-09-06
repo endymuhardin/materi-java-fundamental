@@ -8,7 +8,7 @@
 # Skema Penilaian
 - UTS
 - UAS
-- Catatan Kuliah
+- Tugas
 
 # Kebutuhan Software
 
@@ -35,8 +35,9 @@
     - Foto dengan HP
     - Screen Recorder
     - Dropbox
-- Mengerjakan latihan
+- Mengerjakan latihan dan tugas
 - Aktif di Group
+- Bertanya melalui email/chat
 
 # Sesi 1 :
 - Intro
