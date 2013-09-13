@@ -89,3 +89,10 @@ __otomatis__ dibuatkan struktur folder
 
         java -cp bin belajar.java.BelajarPackage
 
+# Konvensi #
+
+* Nama package : huruf kecil
+* Nama package : domain dibalik, misal: `com.muhardin.endy`
+* Nama class : UpperCamelCase
+* Nama method dan variabel : lowerCamelCase
+

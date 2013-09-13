@@ -7,6 +7,7 @@
   <meta name="author" content="Endy Muhardin endy.muhardin@gmail.com" />
   <meta name="date" content="2012-09-21" />
   <title>Java Fundamental - Hello World</title>
+  <style type="text/css">code{white-space: pre;}</style>
   <!-- configuration parameters -->
   <meta name="defaultView" content="slideshow" />
   <meta name="controlVis" content="hidden" />
@@ -34,7 +35,7 @@
   <h2>Endy Muhardin <script type="text/javascript">
             <!--
             h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x65;&#110;&#100;&#x79;&#46;&#x6d;&#x75;&#104;&#x61;&#114;&#100;&#x69;&#110;';e=n+a+h;
-            document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'<code>'+e+'</code>'+'<\/'+'a'+'>');
+            document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
             // -->
             </script><noscript>endy.muhardin at gmail dot com</noscript></h2>
   <h3>21 September 2012</h3>
@@ -99,9 +100,9 @@ javac -d folder-tujuan src/*.java</code></pre></li>
 <li>Environment variable (local)
 <ul class="incremental">
 <li><p>Windows :</p>
-<p>set CLASSPATH=folder1;c:2;..3</p></li>
+<pre><code>set CLASSPATH=folder1;c:\folder2;..\folder3</code></pre></li>
 <li><p>Linux :</p>
-<p>export CLASSPATH=folder1:/home/endy:../folder3</p></li>
+<pre><code>export CLASSPATH=folder1:/home/endy:../folder3</code></pre></li>
 </ul></li>
 <li>Environment variable (global)
 <ul class="incremental">
@@ -126,6 +127,15 @@ javac -d folder-tujuan src/*.java</code></pre></li>
 <li>untuk hasil kompilasi, <strong>otomatis</strong> dibuatkan struktur folder</li>
 <li><p>untuk menjalankan, panggil nama lengkap</p>
 <pre><code>java -cp bin belajar.java.BelajarPackage</code></pre></li>
+</ul>
+</div>
+<div class="section slide level1" id="konvensi">
+<h1>Konvensi</h1>
+<ul class="incremental">
+<li>Nama package : huruf kecil</li>
+<li>Nama package : domain dibalik, misal: <code>com.muhardin.endy</code></li>
+<li>Nama class : UpperCamelCase</li>
+<li>Nama method dan variabel : lowerCamelCase</li>
 </ul>
 </div>
 </div>
